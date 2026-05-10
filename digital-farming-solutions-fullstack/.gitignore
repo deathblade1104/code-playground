@@ -1,0 +1,44 @@
+# Root only (no Next.js at root; frontend lives in nextjs-fe/)
+/.next/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE / editors
+.idea/
+*.iml
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+*.swp
+*.swo
+*~
+
+# Env and secrets (do not commit)
+.env
+.env.local
+.env.*.local
+*.env.local
+nextjs-fe/.env.local
+
+# ---- Frontend (nextjs-fe/) ----
+nextjs-fe/node_modules/
+nextjs-fe/.next/
+nextjs-fe/out/
+nextjs-fe/.turbo
+nextjs-fe/npm-debug.log*
+nextjs-fe/yarn-debug.log*
+nextjs-fe/yarn-error.log*
+nextjs-fe/.pnpm-debug.log*
+
+# ---- Backend (java-be/) ----
+java-be/target/
+java-be/.mvn/wrapper/maven-wrapper.jar
+java-be/logs/
+java-be/*.log
+
+# Build / cache
+*.log
+.cache/
+

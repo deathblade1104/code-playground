@@ -1,0 +1,10 @@
+# Copy to application.properties and adjust as needed.
+# Optional: use application-local.properties for overrides (e.g. local ML URL).
+
+server.port=8080
+
+# CORS: comma-separated origins for the frontend
+app.cors.allowed-origins=http://localhost:3000,http://localhost:3001,http://127.0.0.1:3000,http://127.0.0.1:3001
+
+# ML API base URL (no trailing slash)
+app.ml-api.base-url=https://dfs-mlapi.onrender.com
