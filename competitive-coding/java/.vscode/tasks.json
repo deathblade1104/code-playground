@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Java: build & run",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "javac -Xlint:all Main.java && { timeout 10 java -ea Main < inputf.in > outputf.in; rc=$?; [ $rc -eq 124 ] && echo \"[TIMEOUT 10s: program khatam nahi hua - infinite loop?]\" >&2; exit $rc; }"
+      ],
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true },
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "detail": "javac + java (-ea assertions on). Exceptions/stack-traces khud terminal (stderr) pe aate hain. inputf.in -> outputf.in via redirect."
+    }
+  ]
+}

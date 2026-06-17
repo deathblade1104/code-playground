@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "C++: build & run (debug checks)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "g++-15 -std=c++17 -g -O1 -D_GLIBCXX_DEBUG -D_GLIBCXX_ASSERTIONS -Wall -Wextra Main.cpp -o Main_cpp && { timeout 10 ./Main_cpp; rc=$?; [ $rc -eq 124 ] && echo \"[TIMEOUT 10s: program khatam nahi hua - infinite loop?]\" >&2; exit $rc; }"
+      ],
+      "problemMatcher": ["$gcc"],
+      "group": { "kind": "build", "isDefault": true },
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "detail": "g++-15 + libstdc++ debug mode (out-of-bounds / bad-iterator errors terminal pe). inputf.in -> outputf.in via freopen."
+    },
+    {
+      "label": "C++: build & run (fast -O2)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "g++-15 -std=c++17 -O2 -Wall -Wextra Main.cpp -o Main_cpp && { timeout 10 ./Main_cpp; rc=$?; [ $rc -eq 124 ] && echo \"[TIMEOUT 10s: program khatam nahi hua - infinite loop?]\" >&2; exit $rc; }"
+      ],
+      "problemMatcher": ["$gcc"],
+      "group": "build",
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "detail": "Fast -O2 build (no debug checks) - speed / large-input testing ke liye."
+    }
+  ]
+}
