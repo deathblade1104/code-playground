@@ -1,0 +1,6 @@
+# build artifacts
+*.class
+
+# local test I/O (not committed)
+inputf.in
+outputf.in

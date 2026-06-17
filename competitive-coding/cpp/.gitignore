@@ -1,0 +1,7 @@
+# build artifacts
+Main_cpp
+*.dSYM
+
+# local test I/O (not committed)
+inputf.in
+outputf.in
